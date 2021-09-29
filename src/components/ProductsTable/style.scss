@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 1rem 2rem;
+  
+  font-weight: 500;
+  line-height: 1.5rem;
+  
+  text-align: left;
+  color: var(--black);
+}
+
+td {
+  border-top: 1px solid black;
+}
+
+.buttons-container {
+  padding: 0;
+}
+
+.button  {
+  margin-right: 0rem 0.25rem 0rem 0rem;
+  background-color: var(--background);
+
+  img {
+    width: 28px;
+    transition: filter ease;
+
+    &:hover {
+      filter: brightness(6);
+    }
+  }
+}

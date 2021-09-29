@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5.438rem;
+
+    background: var(--blue);
+
+    img {
+        width: 4.4rem;
+        height: 4.4rem;
+    }
+}
