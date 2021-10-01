@@ -9,7 +9,7 @@ export function ProductsHeader() {
           <h2>Produtos</h2>
 
           <Link to='/create' style={{ textDecoration: 'none' }}>
-            <button>
+            <button className="button">
                 + 
                 <img src={phoneImg} alt="Adicionar novo Celular"/> 
                 ADICIONAR

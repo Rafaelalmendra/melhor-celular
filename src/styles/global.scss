@@ -32,6 +32,16 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+html {
+  @media (max-width: 1080px) {
+    font-size: 93.75%;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 87.5%;
+  }
+}
+
 body {
 	line-height: 1;
 	background: var(--background);
@@ -44,9 +54,7 @@ body, input, textarea, button {
 }
 
 button {
-  max-height: 100vh;
 	border: none;
-	text-decoration: none;
   cursor: pointer;
 }
 
@@ -64,26 +72,37 @@ q:before, q:after {
 	content: none;
 }
 
-html {
-	@media (max-width: 1080px) {
-		font-size: 93.75%;
-	}
+.button {
+  text-decoration: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	@media (max-width: 720px) {
-		font-size: 87.5%;
-	}
+  font-size: 1rem;
+  font-weight: 500;
+
+  width: 11rem;
+  height: 2.8rem;
+
+  border: 1px solid var(--black);
+  border-radius: 5px;
+
+  background: var(--gray);
+
+  cursor: pointer;
+  transition: 0.2s ease;
+  
+  &:hover {
+    color: var(--gray);
+    background: var(--black);
+    transform: scale(1.1);
+
+    img {
+      filter: brightness(7);
+    }
+  }
 }
 
 .root {
   height: 100vh;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 5.438rem;
-
-  background: var(--blue);
-  color: var(--gray);
 }

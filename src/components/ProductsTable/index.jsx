@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import imgEdit from '../../assets/edit.svg'
 import imgDelete from '../../assets/delete.svg'
 
@@ -8,29 +10,44 @@ export function ProductsTable() {
     <table className="table-container">
       <thead>
         <tr>
-          <th>Codigo</th>
+          <th className="code">Codigo</th>
           <th>Modelo</th>
           <th>Preço</th>
           <th>Marca</th>
           <th>Cor</th>
+          <th>Início das vendas</th>
+          <th>Fim das vendas</th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
-          <td className="table-content">23856234</td>
-          <td className="table-content">XT2041-1</td>
-          <td className="table-content">R$ 1.407,12</td>
-          <td className="table-content">Motorola</td>
-          <td className="table-content">Preto</td>
+          <td>23856234</td>
+          <td>XT2041-1</td>
+          <td>R$ 1.407,12</td>
+          <td>Motorola</td>
+          <td>Preto</td>
+          <td>15/03/2020</td>
+          <td>14/06/2020</td>
           <td className="buttons-container">
-            <button className="button"> <img src={imgEdit} alt="Botão de editar" /></button>
-            <button className="button"> <img src={imgDelete} alt="Botão de deletar" /></button>
+            <Link to="/edit">
+              <button 
+                className="button-table">
+                <img src={imgEdit}
+                alt="Botão de editar"
+              />
+              </button>
+            </Link>
+
+            <button
+              className="button-table">
+              <img src={imgDelete}
+              alt="Botão de deletar"
+            />
+            </button>
           </td>
         </tr>
       </tbody>
-
-      
     </table>
   )
 }
