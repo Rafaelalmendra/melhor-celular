@@ -1,54 +1,79 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import axios from "axios";
 
 import '../../styles/global.scss'
 import './style.scss'
 
 //Validações do formulário.
-const validationCreate = yup.object({
+const schema = yup.object({
   model: yup.string()
-  .required("Campo obrigatório")
-  .max(255, "Deve conter no máximo 255 caracteres")
-  .min(2, "Deve conter no mínimo 2 caracteres"),
+    .required("Este campo é obrigatório!")
+    .max(255, "Deve conter no máximo 255 caracteres")
+    .min(2, "Deve conter no mínimo 2 caracteres"),
 
   brand: yup.string()
-  .strict(true)
-  .trim('Não pode haver espaçamentos')
-  .required("Campo obrigatório")
-  .max(255, "Deve conter no máximo 255 caracteres")
-  .min(2, "Deve conter no mínimo 2 caracteres"),
+    .strict(true)
+    .trim('Não pode haver espaçamentos')
+    .required("Este campo é obrigatório!")
+    .max(255, "Deve conter no máximo 255 caracteres")
+    .min(2, "Deve conter no mínimo 2 caracteres"),
 
   price: yup.number()
-  .positive("O Número deve ser positivo.")
-  .typeError("Este campo é obrigatório!")
-  .required(),
+    .positive("O Número deve ser positivo.")
+    .typeError("Este campo é obrigatório!")
+    .required(),
 
-  startDate: yup.date()
-  .min("2018/12/25", "A data de início deve ser posterior ao dia 25/12/2018.")
-  .typeError("Este campo é obrigatório!")
-  .required(),
+  date: yup.date('dd/MM/yyyy')
+    .min("2018/12/25", "A data de início deve ser posterior ao dia 25/12/2018.")
+    .typeError("Este campo é obrigatório!")
+    .required(),
 
-  endDate: yup.date("Campo obrigatório")
-  .min(yup.ref('startDate'),"A data de fim deve ser posterior a data de início.")
-  .typeError("Este campo é obrigatório!")
-  .required(),
+  endDate: yup.date()
+    .min(yup.ref('date'),"A data de fim deve ser posterior a data de início.")
+    .typeError("Este campo é obrigatório!")
+    .required(),
 
   code: yup.string("Campo obrigatório")
-  .max(8, "O código deve conter 8 caracteres")
-  .min(8, "O código deve conter 8 caracteres")
-  .required()
+    .max(8, "O código deve conter 8 caracteres")
+    .min(8, "O código deve conter 8 caracteres")
+    .required()
 });
 
 export function Create() {
+  let history = useHistory()
 
   const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(validationCreate)
+    resolver: yupResolver(schema)
   })
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = data => {
 
+    //formatar a data
+    const Formatada = {
+      ...data,
+      date: new Intl.DateTimeFormat('pt-br').format(data.date),
+      endDate: new Intl.DateTimeFormat('pt-br').format(data.endDate),
+      code: `#${data.code}`,
+    }
+
+    axios.post('https://phones--melhorcom.repl.co/phone', JSON.stringify(Formatada), {
+      headers: {
+        "Content-Type": "application/json",
+        cpf: '04925787454'
+      }
+    })
+    .then(() => {
+      console.log('Deu tudo certo!')
+      history.push('/')
+    })
+    .catch(() => {
+      console.log('Deu errado!')
+    })
+  }
+  
   return (
     <>
       <main>
@@ -76,6 +101,7 @@ export function Create() {
                 <input 
                   type="text" 
                   placeholder="Motorola"
+                  onchange="myFunction()"
                   name="brand"
                   {...register("brand")}
                 />
@@ -112,19 +138,18 @@ export function Create() {
             <div className="fields">
               <div className="field-body">
                 <label>Inicio das vendas</label>
-                <input 
+                <input
                   type="date"
-                  name="startDate"
-                  minValue="2018-02-15"
-                  {...register("startDate")}
+                  name="date"
+                  {...register("date")}
                 />
-                <p className="error-message">{errors.startDate?.message}</p>
+                <p className="error-message">{errors.date?.message}</p>
               </div>
 
               <div className="field-body">
                 <label>Fim das vendas</label>
-                <input 
-                  type="date" 
+                <input
+                  type="date"
                   name="endDate"
                   {...register("endDate")}
                 />
