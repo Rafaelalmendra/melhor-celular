@@ -5,7 +5,6 @@ import * as yup from "yup";
 import axios from "axios";
 
 import '../../styles/global.scss'
-import './style.scss'
 import { useEffect } from "react";
 
 //Form validation
@@ -81,7 +80,7 @@ export function Edit() {
   
   return (
     <>
-      <main>
+      <section>
         <div className="card-detail">
           <h2>Editar produto</h2>
         </div>
@@ -169,7 +168,7 @@ export function Edit() {
             </div>
           </form>
         </div>
-      </main>
+      </section>
     </>
   )
 }

@@ -71,96 +71,94 @@ export function Create() {
   }
   
   return (
-    <>
-      <main>
-        <div className="card-detail">
-          <h2>Detalhe do produto</h2>
-        </div>
+    <section>
+      <div className="card-detail">
+        <h2>Detalhe do produto</h2>
+      </div>
 
-        <div className="card-body">
-          <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="card-body">
+        <form onSubmit={handleSubmit(onSubmit)}>
 
-            <div className="fields">
-              <div className="field-body">
-                <label>Modelo</label>
-                <input
-                  type="text" 
-                  placeholder="XT2041-1"
-                  name="model"
-                  {...register("model")} 
-                />
-                <p className="error-message">{errors.model?.message}</p>
-              </div>
-
-              <div className="field-body">
-                <label>Marca</label>
-                <input 
-                  type="text" 
-                  placeholder="Motorola"
-                  name="brand"
-                  {...register("brand")}
-                />
-                <p className="error-message">{errors.brand?.message}</p>
-              </div>
+          <div className="fields">
+            <div className="field-body">
+              <label>Modelo</label>
+              <input
+                type="text" 
+                placeholder="XT2041-1"
+                name="model"
+                {...register("model")} 
+              />
+              <p className="error-message">{errors.model?.message}</p>
             </div>
 
-            <div className="fields">
-              <div className="field-body">
-                <label>Cor</label>
-                <select
-                  name="color"
-                  {...register("color")}
-                >
-                  <option value="BLACK">Preto</option>
-                  <option value="WHITE">Branco</option>
-                  <option value="GOLD">Dourado</option>
-                  <option value="PINK">Rosa</option>
-                </select>
-              </div>
+            <div className="field-body">
+              <label>Marca</label>
+              <input 
+                type="text" 
+                placeholder="Motorola"
+                name="brand"
+                {...register("brand")}
+              />
+              <p className="error-message">{errors.brand?.message}</p>
+            </div>
+          </div>
 
-              <div className="field-body">
-                <label>Preço</label>
-                <input
-                  type="number"
-                  placeholder="1.400,00"
-                  name="price"
-                  {...register("price")}
-                />
-                <p className="error-message">{errors.price?.message}</p>
-              </div>
+          <div className="fields">
+            <div className="field-body">
+              <label>Cor</label>
+              <select
+                name="color"
+                {...register("color")}
+              >
+                <option value="BLACK">Preto</option>
+                <option value="WHITE">Branco</option>
+                <option value="GOLD">Dourado</option>
+                <option value="PINK">Rosa</option>
+              </select>
             </div>
 
-            <div className="fields">
-              <div className="field-body">
-                <label>Inicio das vendas</label>
-                <input
-                  type="date"
-                  name="date"
-                  {...register("date")}
-                />
-                <p className="error-message">{errors.date?.message}</p>
-              </div>
+            <div className="field-body">
+              <label>Preço</label>
+              <input
+                type="number"
+                placeholder="1.400,00"
+                name="price"
+                {...register("price")}
+              />
+              <p className="error-message">{errors.price?.message}</p>
+            </div>
+          </div>
 
-              <div className="field-body">
-                <label>Fim das vendas</label>
-                <input
-                  type="date"
-                  name="endDate"
-                  {...register("endDate")}
-                />
-                <p className="error-message">{errors.endDate?.message}</p>
-              </div>
+          <div className="fields">
+            <div className="field-body">
+              <label>Inicio das vendas</label>
+              <input
+                type="date"
+                name="date"
+                {...register("date")}
+              />
+              <p className="error-message">{errors.date?.message}</p>
             </div>
 
-            <div className="button-field">
-              <Link to="/" style={{ textDecoration: 'none' }}>
-                <button className="button-create">Voltar</button>
-              </Link>
-              <button className="button-create" type="submit">Salvar</button>
+            <div className="field-body">
+              <label>Fim das vendas</label>
+              <input
+                type="date"
+                name="endDate"
+                {...register("endDate")}
+              />
+              <p className="error-message">{errors.endDate?.message}</p>
             </div>
-          </form>
-        </div>
-      </main>
-    </>
+          </div>
+
+          <div className="button-field">
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <button className="button-create">Voltar</button>
+            </Link>
+            <button className="button-create" type="submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </section>
   )
 }

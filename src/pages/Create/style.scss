@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 8rem;
+  margin-bottom: 2.4rem;
 
   h2 {
     font-size: 1.6rem;
@@ -9,117 +11,115 @@
   }
 }
 
+label {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 198px;
+  height: 40px;   
+
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+
+  &::placeholder {
+    font-size: 0.875rem;
+    font-weight: 500;
+    
+    padding-left: 0.75rem;
+
+    color: var(--border);
+    opacity: 0.6;
+  }
+}
+
+input[type="date"] { 
+  padding-left: 0.75rem;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--black);
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+  }
+}
+
+select {
+  width: 198px;
+  height: 40px;
+
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+    
+  padding-left: 0.75rem;
+
+  color: var(--black);
+}
+
 .card-body {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
 
-  .fields {
-    display: flex;
-    padding-left: 0;
-    
-    .field-body {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+.field-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-      &:first-child {
-       margin-right: 1.5rem;
-      }
-
-      label {
-        margin-top: 1rem;
-        font-size: 0.9rem;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-      }
-
-      input {
-        width: 198px;
-        height: 40px;   
-
-        border: 1px solid var(--border);
-        border-radius: 0.25rem;
-
-        &::placeholder {
-          font-size: 0.875rem;
-          font-weight: 500;
-          
-          padding-left: 0.75rem;
-
-          color: var(--border);
-          opacity: 0.6;
-        }
-      }
-
-      input[type="date"] { 
-        padding-left: 0.75rem;
-
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--black);
-
-
-        &::-webkit-calendar-picker-indicator {
-          filter: invert(100%);
-        }
-      }
-      
-      select {
-        width: 198px;
-        height: 40px;
-
-        border: 1px solid var(--border);
-        border-radius: 0.25rem;
-
-        font-size: 0.875rem;
-        font-weight: 500;
-          
-        padding-left: 0.75rem;
-
-        color: var(--black);
-      }
-    }
+  &:first-child {
+    margin-right: 1.5rem;
   }
+}
+
+.fields {
+  display: flex;
+  padding-left: 0;
+} 
   
-  .button-field {
+.button-field {
+  display: flex;
+  justify-content: right;
+  margin-top: 2.5rem;
+
+  .button-create {
     display: flex;
-    justify-content: right;
-    margin-top: 2.5rem;
-  
-    .button-create {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-  
-      font-size: 1rem;
-      font-weight: 500;
-  
-      width: 5.438rem;
-      height: 2.063rem;
-  
-      border: 1px solid var(--black);
-      border-radius: 5px;
-  
-      background: var(--gray);
-  
-      cursor: pointer;
-      transition: 0.2s ease;
-  
-      &:first-child {
-        margin-right: 1.5rem;
-      }
-      
-      &:hover {
-        color: var(--gray);
-        background: var(--black);
-        transform: scale(1.1);
-  
-        img {
-          filter: brightness(7);
-        }
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 1rem;
+    font-weight: 500;
+
+    width: 5.438rem;
+    height: 2.063rem;
+
+    border: 1px solid var(--black);
+    border-radius: 5px;
+
+    background: var(--gray);
+
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:first-child {
+      margin-right: 1.5rem;
+    }
+    
+    &:hover {
+      color: var(--gray);
+      background: var(--black);
+      transform: scale(1.1);
+
+      img {
+        filter: brightness(7);
       }
     }
   }
@@ -130,4 +130,24 @@
   max-width: 198px;
   font-size: 0.875rem;
   color: var(--error);
+}
+
+//Small devices
+@media (max-width: 575.98px) {
+  label {
+    margin-top: 0.5rem;
+  }
+
+  .field-body:first-child {
+    margin-right: 0.7rem;
+  }
+
+  .fields {
+    display: block;
+  }
+
+  .button-field {
+    justify-content: center;
+  }
+
 }

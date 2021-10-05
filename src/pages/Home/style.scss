@@ -68,7 +68,6 @@ td {
       padding-left: 1rem;
     }
   }
-
 }
 
 //Medium devices
@@ -99,4 +98,20 @@ td {
     display: none;
   }
 
+}
+
+//Very Small devices
+@media (max-width: 575.98px) {
+  .main {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  th, td {
+    font-size: 0.7rem;
+  }
+
+  .button-table img {
+    width: 20px;
+  }
 }
