@@ -9,7 +9,7 @@
 <br>
 
 <p align="center">
-  <a href="https://letmeask-efccf.web.app/" target="_blank">
+  <a href="https://melhor-celular.netlify.app/" target="_blank">
     click here to access the deploy
   </a>
 </p>
