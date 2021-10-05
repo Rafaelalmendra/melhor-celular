@@ -16,3 +16,10 @@ footer {
     color: var(--gray);
   }
 }
+
+//Small devices
+@media (max-width: 568px) {
+  footer span {
+    font-size: 0.65rem;
+  } 
+}

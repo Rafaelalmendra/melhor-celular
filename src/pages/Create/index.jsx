@@ -3,11 +3,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from "axios";
+import { v4 } from 'uuid';
 
 import '../../styles/global.scss'
 import './style.scss'
 
-//Validações do formulário.
+//Form validation
 const schema = yup.object({
   model: yup.string()
     .required("Este campo é obrigatório!")
@@ -35,11 +36,6 @@ const schema = yup.object({
     .min(yup.ref('date'),"A data de fim deve ser posterior a data de início.")
     .typeError("Este campo é obrigatório!")
     .required(),
-
-  code: yup.string("Campo obrigatório")
-    .max(8, "O código deve conter 8 caracteres")
-    .min(8, "O código deve conter 8 caracteres")
-    .required()
 });
 
 export function Create() {
@@ -51,26 +47,26 @@ export function Create() {
 
   const onSubmit = data => {
 
-    //formatar a data
-    const Formatada = {
+    //formatting the date and creating the identification code
+    const Formated = {
       ...data,
       date: new Intl.DateTimeFormat('pt-br').format(data.date),
       endDate: new Intl.DateTimeFormat('pt-br').format(data.endDate),
-      code: `#${data.code}`,
+      code: v4().slice(0, 8)
     }
 
-    axios.post('https://phones--melhorcom.repl.co/phone', JSON.stringify(Formatada), {
+    axios.post('https://phones--melhorcom.repl.co/phone', JSON.stringify(Formated), {
       headers: {
         "Content-Type": "application/json",
-        cpf: '04925787454'
+        cpf: '07955021339'
       }
     })
     .then(() => {
-      console.log('Deu tudo certo!')
+      console.log('successful request!')
       history.push('/')
     })
     .catch(() => {
-      console.log('Deu errado!')
+      console.log('request failed!')
     })
   }
   
@@ -101,7 +97,6 @@ export function Create() {
                 <input 
                   type="text" 
                   placeholder="Motorola"
-                  onchange="myFunction()"
                   name="brand"
                   {...register("brand")}
                 />
@@ -154,19 +149,6 @@ export function Create() {
                   {...register("endDate")}
                 />
                 <p className="error-message">{errors.endDate?.message}</p>
-              </div>
-            </div>
-
-            <div className="fields">
-              <div className="field-body">
-                <label>Código de identificação</label>
-                <input
-                  type="text"
-                  placeholder="23856234"
-                  name="code"
-                  {...register("code")}
-                />
-                <p className="error-message">{errors.code?.message}</p>
               </div>
             </div>
 

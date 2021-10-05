@@ -2,3 +2,101 @@
     margin-left: 9rem;
     margin-right: 9rem;
 }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  border-collapse: collapse;
+  margin-bottom: 8rem;
+}
+
+td, th {
+  padding: 1rem 2rem;
+  
+  font-weight: 500;
+  line-height: 1.5rem;
+  
+  text-align: left;
+  color: var(--black);
+}
+
+td {
+  border-top: 1px solid black;
+}
+
+.buttons-container {
+  padding: 0;
+}
+
+.button-table  {
+  background-color: var(--background);
+
+  img {
+    width: 28px;
+    transition: filter ease;
+
+    &:hover {
+      filter: brightness(3);
+    }
+  }
+}
+
+//Laptop displays
+@media (max-width: 1440px) {
+  th, td {
+    font-size: 0.9rem;
+    padding: 1rem 1rem;
+  }
+
+  .button-table img {
+    width: 26px;
+  }
+}
+
+//Large devices
+@media (max-width: 1199.98px) {
+  .main {
+    margin-left: 7rem;
+    margin-right: 7rem;
+  }
+
+  th, td {
+    padding: 1rem 0.5rem;
+    
+    &:first-child {
+      padding-left: 1rem;
+    }
+  }
+
+}
+
+//Medium devices
+@media (max-width: 991.98px) {
+  .main {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+}
+
+//Small devices
+@media (max-width: 804px) {
+  .main {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  th, td {
+    padding: 1rem 0rem;
+    text-align: center;
+  }
+
+  .button-table img {
+    width: 22px;
+  }
+
+  .date {
+    display: none;
+  }
+
+}
