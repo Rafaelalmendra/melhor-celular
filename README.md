@@ -29,12 +29,6 @@ This project was developed with the following technologies:
 
 ## 🚀 How to run
 
-Clone the project and access its folder.
-
-```bash
-$ git clone Rafaelalmendra/melhor-celular
-```
-
 To start it, follow the steps below:
 ```bash
 # Install dependencies
