@@ -24,8 +24,11 @@ Melhor-celular is a responsive site to manage cell phone records
 
 This project was developed with the following technologies:
 
-- [Reactjs](https://reactjs.org)
-- [Sass](https://sass-lang.com)
+- [Reactjs]
+- [Sass]
+- [Axios]
+- [React Hook Form]
+- [Yup]
 
 ## 🚀 How to run
 
